@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add the route handlers here:
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {image:"/images/beer.png", imageText:"Picture of a beer." });
 });
 
 app.get('/beers', (req, res) => {

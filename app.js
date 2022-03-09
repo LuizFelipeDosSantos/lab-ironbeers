@@ -22,13 +22,14 @@ app.get('/', (req, res) => {
   res.render('index', {image:"/images/beer.png", imageText:"Picture of a beer." });
 });
 
-app.get('/beers', async (req, res) => {
-  const resultOfPromise = await punkAPI.getBeers()
-  res.render('beers', {beers: resultOfPromise});
+app.get('/beers', async(req, res) => {
+  const resultBeers = await punkAPI.getBeers();
+  res.render('beers', {beers: resultBeers});
 });
 
-app.get('/random-beer', (req, res) => {
-  res.render('random-beer');
+app.get('/random-beer', async(req, res) => {
+  const randomBeer = await punkAPI.getRandom();
+  res.render('random-beer', {beer: randomBeer[0]});
 });
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));

@@ -22,8 +22,9 @@ app.get('/', (req, res) => {
   res.render('index', {image:"/images/beer.png", imageText:"Picture of a beer." });
 });
 
-app.get('/beers', (req, res) => {
-  res.render('beers');
+app.get('/beers', async (req, res) => {
+  const resultOfPromise = await punkAPI.getBeers()
+  res.render('beers', {beers: resultOfPromise});
 });
 
 app.get('/random-beer', (req, res) => {

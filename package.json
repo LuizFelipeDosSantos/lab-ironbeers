@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "main": "app.js",
   "scripts": {
+    "run": "node app.js",
     "start": "nodemon app.js"
   },
   "license": "MIT",
